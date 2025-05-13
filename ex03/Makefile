@@ -1,4 +1,4 @@
-NAME = Sd_is_for_losers
+NAME = Unnecessary_violence
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address,leak
@@ -6,8 +6,9 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address,leak
 RM = rm -rf
 
 SRCS =	main.cpp\
-		parsing.cpp\
-
+		Weapon.cpp\
+		HumanA.cpp\
+		HumanB.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 

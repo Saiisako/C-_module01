@@ -6,29 +6,30 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 13:09:34 by skock             #+#    #+#             */
-/*   Updated: 2025/05/07 17:30:51 by skock            ###   ########.fr       */
+/*   Updated: 2025/05/06 17:50:12 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.hpp"
+#include <iostream>
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int	main(int ac, char **av)
+int main()
 {
-	std::fstream fs;
-	std::fstream new_fs;
-	std::stringstream name;
+	Weapon club = Weapon("crude spiked club");
+	HumanA bob("Bob", club);
+	bob.attack();
+	club.setType("some other type of club");
+	bob.attack();
+	
+	
+	Weapon club = Weapon("crude spiked club");
+	HumanB jim("Jim");
+	jim.setWeapon(club);
+	jim.attack();
+	club.setType("some other type of club");
+	jim.attack();
 
-	name << av[1] << ".replace";
-	fs.open(av[1]);
-	if (!fs.is_open())
-		std::cout << "Error while trying to open file : " << av[1] << std::endl;
-	new_fs.open(name.str());
-	fs.close();
-	new_fs.close()
-	if (parse_arguments(ac))
-		return (print_error(), 1);
 	return (0);
-
 }
-
-(*f)(int)

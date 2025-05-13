@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   parsing.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 13:09:34 by skock             #+#    #+#             */
-/*   Updated: 2025/05/07 17:30:51 by skock            ###   ########.fr       */
+/*   Created: 2025/05/07 12:24:51 by skock             #+#    #+#             */
+/*   Updated: 2025/05/07 12:26:30 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
 
-int	main(int ac, char **av)
+int	parse_arguments(int ac)
 {
-	std::fstream fs;
-	std::fstream new_fs;
-	std::stringstream name;
-
-	name << av[1] << ".replace";
-	fs.open(av[1]);
-	if (!fs.is_open())
-		std::cout << "Error while trying to open file : " << av[1] << std::endl;
-	new_fs.open(name.str());
-	fs.close();
-	new_fs.close()
-	if (parse_arguments(ac))
-		return (print_error(), 1);
-	return (0);
-
+	if (ac == 4)
+		return (0);
+	else
+		return (1);
 }
 
-(*f)(int)
+void	print_error() {std::cout << "Enter : [1] = filename | [2] = string_1 | [3] = string_2" << std::endl;}

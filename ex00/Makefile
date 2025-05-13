@@ -1,20 +1,21 @@
-NAME = Sd_is_for_losers
+NAME = BraiiiiiiinnnzzzZ
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address,leak
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g #-fsanitize=address,leak
 
 RM = rm -rf
 
-SRCS =	main.cpp\
-		parsing.cpp\
-
+SRCS =	zombie.cpp\
+		randomChump.cpp\
+		newZombie.cpp\
+		main.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
 $(NAME): $(OBJS)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo Compiling..
-	@sleep 0.8
+	@sleep 1.4
 	@echo success !
 
 %.o: %.cpp
