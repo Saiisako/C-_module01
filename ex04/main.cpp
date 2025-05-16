@@ -6,7 +6,7 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 13:09:34 by skock             #+#    #+#             */
-/*   Updated: 2025/05/15 14:52:56 by skock            ###   ########.fr       */
+/*   Updated: 2025/05/16 11:21:04 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,28 @@ void	append(std::ifstream& fs, std::ofstream& new_fs, char **av)
 		}
 		new_fs << new_line << std::endl;
 	}
-	
 }
 
 int	main(int ac, char **av)
 {
-	std::ifstream fs(av[1]);
-
-	std::stringstream name;
-	name << av[1] << ".replace";
-	std::ofstream new_fs(name.str().c_str());
 	if (parse_arguments(ac))
 		return (print_error(), 1);
+	std::ifstream fs(av[1]);
 	if (fs.is_open())
 		{
+			std::stringstream name;
+			name << av[1] << ".replace";
+			std::ofstream new_fs(name.str().c_str(), std::ios::trunc);
 			if (new_fs.is_open())
+			{
 				append(fs, new_fs, av);
+			}
 			else
 				std::cout << "Error while trying to open file : " << av[1] << std::endl;
+			new_fs.close();
+			fs.close();
 		}
 	else
 		std::cout << "Error while trying to open file : " << av[1] << std::endl;
-	fs.close();
 	return (0);
 }
